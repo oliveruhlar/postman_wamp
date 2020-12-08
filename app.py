@@ -2,6 +2,7 @@ from flask import Flask, request, render_template
 from flask import jsonify, make_response
 import pymysql
 from prettytable import PrettyTable
+import json
 
 app = Flask(__name__)
 
@@ -26,7 +27,7 @@ def main():
         if request.method == 'GET':
             db = pymysql.connect(host="localhost", port=3308, user="root", password="",database="myfirstdb" )
             cursor = db.cursor()
-            sql_select = "SELECT * FROM employee"
+            sql_select = "SELECT * FROM employee ORDER BY ID ASC"
             cursor.execute(sql_select)
             records = cursor.fetchall()
             result_table = PrettyTable()
@@ -44,7 +45,6 @@ def main():
                 placeholders = ', '.join(['%s'] * len(list(req.values())[0]))
                 column = ', '.join(req.keys())
                 sql_delete = "DELETE FROM employee WHERE %s IN ( %s ) " % (column, placeholders)
-                print(sql_delete)
                 cursor.execute(sql_delete, list(req.values())[0])
                 db.commit()
                 db.close()
@@ -73,5 +73,5 @@ def main():
     except:
         return "Request not defined", 400
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
+app.run(debug=True)

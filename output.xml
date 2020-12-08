@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.9.0 on win32)" generated="20201208 10:08:07.996" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.9.0 on win32)" generated="20201208 17:26:26.210" rpa="false">
 <suite id="s1" name="Rf Test Cases" source="C:\Users\oliver.uhlar\Desktop\Projects\postman_wamp\rf_test_cases.robot">
 <kw name="Start all" type="setup">
 <kw name="Start Process" library="Process">
@@ -8,141 +8,42 @@
 <arg>C:\\Users\\oliver.uhlar\\Desktop\\Projects\\postman_wamp\\venv\\Scripts\\python.exe</arg>
 <arg>app.py</arg>
 <arg>runserver</arg>
-<arg>alias=f_app</arg>
 </arguments>
-<msg timestamp="20201208 10:08:08.151" level="INFO">Starting process:
+<msg timestamp="20201208 17:26:26.610" level="INFO">Starting process:
 C:\Users\oliver.uhlar\Desktop\Projects\postman_wamp\venv\Scripts\python.exe app.py runserver</msg>
-<status status="PASS" starttime="20201208 10:08:08.151" endtime="20201208 10:08:08.154"></status>
+<status status="PASS" starttime="20201208 17:26:26.610" endtime="20201208 17:26:26.613"></status>
+</kw>
+<kw name="Start Process" library="Process">
+<doc>Starts a new process on background.</doc>
+<arguments>
+<arg>wamp.bat</arg>
+</arguments>
+<msg timestamp="20201208 17:26:26.613" level="INFO">Starting process:
+wamp.bat</msg>
+<status status="PASS" starttime="20201208 17:26:26.613" endtime="20201208 17:26:26.616"></status>
 </kw>
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
 <arg>https://www.postman.com/</arg>
-<arg>firefox</arg>
-<arg>alias=postman</arg>
+<arg>chrome</arg>
 </arguments>
-<msg timestamp="20201208 10:08:08.155" level="INFO">Opening browser 'firefox' to base url 'https://www.postman.com/'.</msg>
-<msg timestamp="20201208 10:08:08.158" level="INFO">Firefox driver log is always forced to to: C:\Users\oliver.uhlar\Desktop\Projects\postman_wamp\geckodriver-63.log</msg>
-<status status="PASS" starttime="20201208 10:08:08.154" endtime="20201208 10:08:17.923"></status>
+<msg timestamp="20201208 17:26:26.617" level="INFO">Opening browser 'chrome' to base url 'https://www.postman.com/'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201208 17:26:26.631" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20201208 17:26:26.631" endtime="20201208 17:26:26.632"></status>
 </kw>
-<kw name="Click Link" library="SeleniumLibrary">
-<doc>Clicks a link identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://html/body/div[1]/div[1]/main/nav/div/ul[2]/li/a</arg>
-</arguments>
-<msg timestamp="20201208 10:08:17.923" level="INFO">Clicking link 'xpath://html/body/div[1]/div[1]/main/nav/div/ul[2]/li/a'.</msg>
-<status status="PASS" starttime="20201208 10:08:17.923" endtime="20201208 10:08:18.975"></status>
+<msg timestamp="20201208 17:26:26.672" level="FAIL">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+</msg>
+<status status="FAIL" starttime="20201208 17:26:26.616" endtime="20201208 17:26:26.672"></status>
 </kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<arguments>
-<arg>id:username</arg>
-<arg>timeout=20s</arg>
-</arguments>
-<status status="PASS" starttime="20201208 10:08:18.975" endtime="20201208 10:08:18.975"></status>
+<status status="FAIL" starttime="20201208 17:26:26.609" endtime="20201208 17:26:26.672"></status>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>id:username</arg>
-<arg>mekkyzbirka@gmail.com</arg>
-</arguments>
-<msg timestamp="20201208 10:08:18.975" level="INFO">Typing text 'mekkyzbirka@gmail.com' into text field 'id:username'.</msg>
-<status status="PASS" starttime="20201208 10:08:18.975" endtime="20201208 10:08:18.991"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>id:password</arg>
-<arg>Test@12345</arg>
-</arguments>
-<msg timestamp="20201208 10:08:18.991" level="INFO">Typing text 'Test@12345' into text field 'id:password'.</msg>
-<status status="PASS" starttime="20201208 10:08:18.991" endtime="20201208 10:08:19.007"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="sign-in-btn"]</arg>
-</arguments>
-<msg timestamp="20201208 10:08:19.007" level="INFO">Clicking element 'xpath://*[@id="sign-in-btn"]'.</msg>
-<status status="PASS" starttime="20201208 10:08:19.007" endtime="20201208 10:08:19.245"></status>
-</kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<arguments>
-<arg>xpath:/html/body/div[3]/div/div/div[5]/div/div[1]/aside/div/div[2]/a[1]</arg>
-<arg>timeout=20s</arg>
-</arguments>
-<status status="PASS" starttime="20201208 10:08:19.245" endtime="20201208 10:08:25.099"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath:/html/body/div[3]/div/div/div[5]/div/div[1]/aside/div/div[2]/a[1]</arg>
-</arguments>
-<msg timestamp="20201208 10:08:25.099" level="INFO">Clicking element 'xpath:/html/body/div[3]/div/div/div[5]/div/div[1]/aside/div/div[2]/a[1]'.</msg>
-<status status="PASS" starttime="20201208 10:08:25.099" endtime="20201208 10:08:25.368"></status>
-</kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<arguments>
-<arg>xpath:/html/body/div[3]/div/div/div[5]/div/div[5]/div[2]/a</arg>
-<arg>timeout=20s</arg>
-</arguments>
-<status status="PASS" starttime="20201208 10:08:25.368" endtime="20201208 10:08:25.569"></status>
-</kw>
-<kw name="Click Link" library="SeleniumLibrary">
-<doc>Clicks a link identified by ``locator``.</doc>
-<arguments>
-<arg>xpath:/html/body/div[3]/div/div/div[5]/div/div[5]/div[2]/a</arg>
-</arguments>
-<msg timestamp="20201208 10:08:25.569" level="INFO">Clicking link 'xpath:/html/body/div[3]/div/div/div[5]/div/div[5]/div[2]/a'.</msg>
-<status status="PASS" starttime="20201208 10:08:25.569" endtime="20201208 10:08:25.800"></status>
-</kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<arguments>
-<arg>xpath://html/body/div[3]/div/div/div[5]/div[1]/div[1]/div/div/div/div[1]/div[1]/div/div/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div/div/div/div</arg>
-<arg>timeout=20s</arg>
-</arguments>
-<status status="PASS" starttime="20201208 10:08:25.800" endtime="20201208 10:08:27.020"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://html/body/div[3]/div/div/div[5]/div[1]/div[1]/div/div/div/div[1]/div[1]/div/div/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div/div/div/div</arg>
-</arguments>
-<msg timestamp="20201208 10:08:27.020" level="INFO">Clicking element 'xpath://html/body/div[3]/div/div/div[5]/div[1]/div[1]/div/div/div/div[1]/div[1]/div/div/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div/div/div/div'.</msg>
-<status status="PASS" starttime="20201208 10:08:27.020" endtime="20201208 10:08:27.251"></status>
-</kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<arguments>
-<arg>xpath://html/body/div[3]/div/div/div[5]/div[1]/div[1]/div/div/div/div[1]/div[1]/div/div/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[4]</arg>
-<arg>timeout=20s</arg>
-</arguments>
-<status status="PASS" starttime="20201208 10:08:27.251" endtime="20201208 10:08:27.274"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://html/body/div[3]/div/div/div[5]/div[1]/div[1]/div/div/div/div[1]/div[1]/div/div/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[4]</arg>
-</arguments>
-<msg timestamp="20201208 10:08:27.274" level="INFO">Clicking element 'xpath://html/body/div[3]/div/div/div[5]/div[1]/div[1]/div/div/div/div[1]/div[1]/div/div/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[4]'.</msg>
-<status status="PASS" starttime="20201208 10:08:27.274" endtime="20201208 10:08:27.537"></status>
-</kw>
-<status status="PASS" starttime="20201208 10:08:08.151" endtime="20201208 10:08:27.537"></status>
-</kw>
-<test id="s1-t1" name="Projects">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>10s</arg>
-</arguments>
-<msg timestamp="20201208 10:08:37.546" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" starttime="20201208 10:08:27.537" endtime="20201208 10:08:37.546"></status>
-</kw>
-<status status="PASS" starttime="20201208 10:08:27.537" endtime="20201208 10:08:37.547" critical="yes"></status>
+<test id="s1-t1" name="Test POST">
+<status status="FAIL" starttime="20201208 17:26:26.672" endtime="20201208 17:26:26.673" critical="yes">Parent suite setup failed:
+WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+</status>
 </test>
 <kw name="Teardown all" type="teardown">
 <kw name="Terminate All Processes" library="Process">
@@ -150,27 +51,25 @@ C:\Users\oliver.uhlar\Desktop\Projects\postman_wamp\venv\Scripts\python.exe app.
 <arguments>
 <arg>kill=False</arg>
 </arguments>
-<msg timestamp="20201208 10:08:37.549" level="INFO">Gracefully terminating process.</msg>
-<msg timestamp="20201208 10:08:37.651" level="INFO">Process completed.</msg>
-<status status="PASS" starttime="20201208 10:08:37.549" endtime="20201208 10:08:37.651"></status>
+<msg timestamp="20201208 17:26:26.675" level="INFO">Gracefully terminating process.</msg>
+<msg timestamp="20201208 17:26:26.777" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20201208 17:26:26.675" endtime="20201208 17:26:26.778"></status>
 </kw>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20201208 10:08:37.651" endtime="20201208 10:08:38.257"></status>
+<status status="PASS" starttime="20201208 17:26:26.675" endtime="20201208 17:26:26.778"></status>
 </kw>
-<status status="PASS" starttime="20201208 10:08:37.548" endtime="20201208 10:08:38.257"></status>
-</kw>
-<status status="PASS" starttime="20201208 10:08:07.997" endtime="20201208 10:08:38.257"></status>
+<status status="FAIL" starttime="20201208 17:26:26.212" endtime="20201208 17:26:26.778">Suite setup failed:
+WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+</status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Rf Test Cases">Rf Test Cases</stat>
+<stat pass="0" fail="1" id="s1" name="Rf Test Cases">Rf Test Cases</stat>
 </suite>
 </statistics>
 <errors>
