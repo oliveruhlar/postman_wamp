@@ -78,7 +78,6 @@ Test GET after DELETE
 
 *** Keywords ***
 Start all
-    ${paswd} =	 decoding  ${hash_pass}
     Start Process  C:\\Users\\oliver.uhlar\\Desktop\\Projects\\postman_wamp\\venv\\Scripts\\python.exe  app.py  runserver
     Start Process  wamp.bat
     ${chrome options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
